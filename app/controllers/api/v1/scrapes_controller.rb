@@ -26,6 +26,7 @@ module Api
           og_url: og_url,
           og_title: og_title,
           og_description: og_description,
+          og_image: og_image,
           og_twitter_card: og_twitter_card,
           og_twitter_title: og_twitter_title,
           og_twitter_description: og_twitter_description
