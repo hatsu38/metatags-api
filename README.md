@@ -41,3 +41,13 @@ This first iteration will have URIs prefixed with https://metatags-api.herokuapp
   }
 }
 ```
+
+
+### デプロイ方法
+```
+# herokuにログイン
+$ heroku login
+
+# herokuにデプロイ
+$ heroku push origin master
+```
