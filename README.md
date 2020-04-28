@@ -44,6 +44,7 @@ This first iteration will have URIs prefixed with https://metatags-api.herokuapp
 
 
 ### デプロイ方法
+コンソールからデプロイ
 ```
 # herokuにログイン
 $ heroku login
@@ -51,3 +52,8 @@ $ heroku login
 # herokuにデプロイ
 $ heroku push origin master
 ```
+
+heroku管理画面からデプロイ
+
+[Herokuの管理画面](https://dashboard.heroku.com/apps/metatags-api/deploy/github) から `Deploy Branch`ボタンを押してデプロイ
+
