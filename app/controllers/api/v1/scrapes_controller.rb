@@ -29,7 +29,9 @@ module Api
           og_image: og_image,
           og_twitter_card: og_twitter_card,
           og_twitter_title: og_twitter_title,
-          og_twitter_description: og_twitter_description
+          og_twitter_description: og_twitter_description,
+          domain: URI.parse(params[:url]).host,
+          url: params[:url]
         )
       end
     end
