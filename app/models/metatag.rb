@@ -9,7 +9,9 @@ class Metatag
                 :og_image,
                 :og_twitter_card,
                 :og_twitter_title,
-                :og_twitter_description
+                :og_twitter_description,
+                :domain,
+                :url
   def initialize(attrs)
     @title = attrs[:title]
     @description = attrs[:description]
@@ -22,6 +24,8 @@ class Metatag
     @og_twitter_card = attrs[:og_twitter_card]
     @og_twitter_title = attrs[:og_twitter_title]
     @og_twitter_description = attrs[:og_twitter_description]
+    @domain = attrs[:domain]
+    @url = attrs[:url]
   end
 
 end
