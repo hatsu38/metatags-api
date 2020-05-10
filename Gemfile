@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+# Sentry(エラー通知)
+gem "sentry-raven"
+
 # ページネーション
 gem 'kaminari'
 

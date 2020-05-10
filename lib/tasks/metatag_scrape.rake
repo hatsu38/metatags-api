@@ -15,6 +15,7 @@ namespace :metatag_scrape do
         Rails.logger.error(e.message)
         Rails.logger.error(e.response_code)
         Rails.logger.error(detail_page)
+        Raven.capture_exception(e)
       end
     end
   end
@@ -55,5 +56,6 @@ def get_metatags(url, agent)
     Rails.logger.error(e)
     Rails.logger.error(domain)
     Rails.logger.error(url)
+    Raven.capture_exception(e)
   end
 end
