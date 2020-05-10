@@ -21,7 +21,7 @@ module Api
         @metatag = Metatag.new(
           title: title,
           description: description,
-          keywords: keywords,
+          keyword: keywords,
           og_site_name: og_site_name,
           og_url: og_url,
           og_title: og_title,
@@ -33,6 +33,7 @@ module Api
           domain: URI.parse(params[:url]).host,
           url: params[:url]
         )
+        @metatag.save
       end
     end
   end
