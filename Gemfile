@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+# ページネーション
+gem 'kaminari'
+
 # Rack互換のWebアプリケーションにクロスオリジンリソースシェアリング（CORS）をサポート
 gem 'rack-cors'
 
