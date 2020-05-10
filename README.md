@@ -51,9 +51,20 @@ $ heroku login
 
 # herokuにデプロイ
 $ heroku push origin master
+
+# herokuでMigrate
+heroku run rails db:migrate
 ```
 
 heroku管理画面からデプロイ
 
 [Herokuの管理画面](https://dashboard.heroku.com/apps/metatags-api/deploy/github) から `Deploy Branch`ボタンを押してデプロイ
 
+### APIの監視
+https://uptimerobot.com/dashboard#784841163
+
+###　バッチ
+毎日AM9:00時動いている
+```
+rails metatag_scrape:service_safari_scrape
+```
