@@ -2,7 +2,7 @@ module Api
   module V1
     class MetatagsController < ApplicationController
       def index
-        @metatags = Metatag.page(params[:page] ||= 1).per(10)
+        @metatags = Metatag.order(id: :desc).page(params[:page] ||= 1).per(12)
         render json: { metatags: @metatags }
       end
 
