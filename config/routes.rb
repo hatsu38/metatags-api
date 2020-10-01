@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'health_check#index'
   namespace :api, {format: 'json'} do
     namespace :v1 do
       resource :scrape, only: [:show]
