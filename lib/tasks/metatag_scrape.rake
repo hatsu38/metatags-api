@@ -36,6 +36,7 @@ def get_metatags(url, agent)
   og_twitter_description = page.at('meta[name="twitter:description"]')[:content] if page.at('meta[name="twitter:description"]')
   domain = URI.parse(url).host
   begin
+    return if Metatag.exists?(domain: domain)
     Metatag.create!(
       url: url,
       title: title,
