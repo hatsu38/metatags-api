@@ -6,10 +6,7 @@ namespace :metatag_scrape do
     page=agent.get(URL)
     page.search('a.name').each do |a|
       begin
-        detail_page=agent.get("#{URL}#{a[:href]}")
-        site_url_a = detail_page.at('#PostInfo p a')
-        next unless site_url_a
-        get_metatags(site_url_a[:href], agent)
+        create_metatags("#{URL}#{a[:href]}", agent)
       rescue Mechanize::ResponseCodeError => e
         Rails.logger.error("====サービス詳細ページのスクレイピングに失敗====")
         Rails.logger.error(e.message)
@@ -21,7 +18,7 @@ namespace :metatag_scrape do
   end
 end
 
-def get_metatags(url, agent)
+def create_metatags(url, agent)
   page = agent.get(url)
   title = page.search('title').text
   description = page.at('meta[name="description"]')[:content] if page.at('meta[name="description"]')
@@ -36,7 +33,7 @@ def get_metatags(url, agent)
   og_twitter_description = page.at('meta[name="twitter:description"]')[:content] if page.at('meta[name="twitter:description"]')
   domain = URI.parse(url).host
   begin
-    return if Metatag.exists?(domain: domain)
+    return nil if Metatag.exists?(domain: domain)
     Metatag.create!(
       url: url,
       title: title,
